@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col col-lg-auto">
-                    <div class="card bg-light md-4" style="max-width: 18rem;">
+                    <div class="card bg-light md-4" style="max-width: 18rem; min-height: 22rem;">
                         <div class="card-header"><h5>Review Info:</h5></div>
                         <div class="card-body">
                             <label>Supervisor Completing Review:</label><br>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col col-lg-auto">
-                    <div class="card bg-light md-4" style="max-width: 18rem;">
+                    <div class="card bg-light md-4" style="max-width: 18rem; min-height: 22rem">
                         <div class="card-header"><h5>Programs Worked</h5></div>
                         <div class="card-body">
                             <label for="snap">SNAP Worked?:
@@ -153,7 +153,7 @@
                     </div>
                 </div>
                 <div class="col col-lg-auto">
-                    <div class="card bg-light md" style="max-width: 24rem;">
+                    <div class="card bg-light md" style="min-width: 24rem;">
                         <div class="card-header"><h5>Supplemental Reporting:</h5></div>
                         <div class="card-body">
                             <div class="form-group">

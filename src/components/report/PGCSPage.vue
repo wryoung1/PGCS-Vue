@@ -14,7 +14,22 @@
                             <p class="card-text">Medicaid : {{ mcCounted }}% - {{ mcAccStars }}*</p>
                             <p class="card-text">TEA : {{ teaCounted }}% - {{ teaAccStars }}*</p>
                             <hr>
-                            <h6>Overall Accuracy: {{ allAccStars }}* - {{ allAccComment }}</h6>
+                            <h6>Overall Accuracy:</h6>
+                            <h5>
+                                <div v-if="(allAccStars >= 3)">
+                                    &#9733; &#9733; &#9733; - Satisfactory
+                                </div>
+
+                                <div v-else-if="(allAccStars >= 2 && allAccStars < 3)">
+                                    &#9733; &#9733; - Needs Improvement
+                                </div>
+                                <div v-else-if="(allAccStars >=1 && allAccStars < 2)">
+                                    &#9733; - Unsatisfactory
+                                </div>
+                                <div v-else>
+                                    No data keyed
+                                </div>
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -37,7 +52,22 @@
                                     <p class="card-text">Expedites : {{ expTime }}% - {{ expTimeStars }}*</p>
                                     <p class="card-text">MAGI : {{ magiTime }}% - {{ magiTimeStars }}*</p>
                                     <hr>
-                                    <h6>Overall Timeliness: {{ allTimeStars }}* - {{ allTimeComment }}</h6>
+                                    <h6>Overall Timeliness:</h6>
+                                    <h5>
+                                        <div v-if="(allTimeStars >= 3)">
+                                            &#9733; &#9733; &#9733; - Satisfactory
+                                        </div>
+
+                                        <div v-else-if="(allTimeStars >= 2 && allTimeStars < 3)">
+                                            &#9733; &#9733; - Needs Improvement
+                                        </div>
+                                        <div v-else-if="(allTimeStars >=1 && allTimeStars < 2)">
+                                            &#9733; - Unsatisfactory
+                                        </div>
+                                        <div v-else>
+                                            No data keyed
+                                        </div>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +86,22 @@
                                         this.$store.state.expRatio }}%, SAR: {{ this.$store.state.sarRatio }}%, MAGI {{
                                         this.$store.state.magiRatio }}%</p>
                                     <hr>
-                                    <h6>Overall Production: STARS (GOAL MET / NOT MET)</h6>
+                                    <h6>Overall Production: {{overallProdScore}}</h6>
+                                    <h5>
+                                        <div v-if="(overallProdScore >= 3)">
+                                            &#9733; &#9733; &#9733; - Satisfactory
+                                        </div>
+
+                                        <div v-else-if="(overallProdScore >= 2 && overallProdScore < 3)">
+                                            &#9733; &#9733; - Needs Improvement
+                                        </div>
+                                        <div v-else-if="(overallProdScore >=1 && overallProdScore < 2)">
+                                            &#9733; - Unsatisfactory
+                                        </div>
+                                        <div v-else>
+                                            No data keyed
+                                        </div>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -187,6 +232,26 @@
             },
             wkrCommentary() {
                 return this.$store.state.wkrCommentary;
+            },
+            overallProdScore() {
+                return Math.ceil(this.$store.state.prodScore);
+            },
+            allProdComment() {
+                let a = Math.ceil(this.$store.state.prodScore);
+                let b = 'No Result';
+                switch (a) {
+                    case 3:
+                        b = 'Satisfactory';
+                        break;
+                    case 2:
+                        b = 'Needs Improvement';
+                        break;
+                    case 1:
+                        b = 'Unsatisfactory';
+                        break;
+                    default:
+                }
+                return b;
             },
             snapAccStars() {
                 let a = 0;
@@ -407,9 +472,10 @@
                 }
 
                 let m = g + h + i + j + k + l;
-                let n = Math.round((a + b + c) / m);
+                let n = Math.round((a + b + c + d + e + f) / m);
                 return n;
             },
+
             allTimeComment() {
                 let a = this.allTimeStars;
                 let b = 'No Result';

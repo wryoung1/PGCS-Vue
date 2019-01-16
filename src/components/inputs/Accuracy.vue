@@ -12,6 +12,21 @@
                             <label>SNAP Errors:</label><br>
                             <input type="number" class="form-control" v-model="snapErrors"><br>
                             <p>SNAP Accuracy: <br> {{ snapAccuracy() }}%</p>
+                            <h4>
+                                <div v-if="(snapAccuracy() >= 95.00 && snapAccuracy() <= 100.00)">
+                                    &#9733; &#9733; &#9733;
+                                </div>
+
+                                <div v-else-if="(snapAccuracy() >= 80.00 && snapAccuracy() < 95.00)">
+                                    &#9733; &#9733;
+                                </div>
+                                <div v-else-if="(snapAccuracy() > 0.00 && snapAccuracy() < 80.00)">
+                                    &#9733;
+                                </div>
+                                <div v-else>
+                                    No data keyed
+                                </div>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -24,6 +39,21 @@
                             <label>Medicaid Errors:</label><br>
                             <input type="number" class="form-control" v-model="medicaidErrors"><br>
                             <p>Medicaid Accuracy: <br> {{ medicaidAccuracy() }}%</p>
+                            <h4>
+                                <div v-if="(medicaidAccuracy() >= 90.00 && medicaidAccuracy() <= 100.00)">
+                                    &#9733; &#9733; &#9733;
+                                </div>
+
+                                <div v-else-if="(medicaidAccuracy() >= 75.00 && medicaidAccuracy() < 90.00)">
+                                    &#9733; &#9733;
+                                </div>
+                                <div v-else-if="(medicaidAccuracy() > 0.00 && medicaidAccuracy() < 75.00)">
+                                    &#9733;
+                                </div>
+                                <div v-else>
+                                    No data keyed
+                                </div>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -36,10 +66,26 @@
                             <label>TEA Errors:</label><br>
                             <input type="number" class="form-control" v-model="teaErrors"><br>
                             <p>TEA Accuracy: <br> {{ teaAccuracy() }}%</p>
+                            <h4>
+                                <div v-if="(teaAccuracy() >= 95.00 && teaAccuracy() <= 100.00)">
+                                    &#9733; &#9733; &#9733;
+                                </div>
+
+                                <div v-else-if="(teaAccuracy() >= 80.00 && teaAccuracy() < 95.00)">
+                                    &#9733; &#9733;
+                                </div>
+                                <div v-else-if="(teaAccuracy() > 0.00 && teaAccuracy() < 80.00)">
+                                    &#9733;
+                                </div>
+                                <div v-else>
+                                    No data keyed
+                                </div>
+                            </h4>
                         </div>
                     </div>
                 </div>
             </div>
+            <br>
             <div class="float-right">
                 <router-link to="/workerdata">
                     <button class="btn btn-secondary">Back</button>

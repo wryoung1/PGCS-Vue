@@ -14,22 +14,7 @@
                                 <input type="number" class="form-control" v-model.number="snapReassigned"><br>
                                 <p>Daily Output: <br>
                                     {{ mathAppFunction() }}/day</p>
-                                <!--                                <h4>
-                                                                    <div v-if="this.$store.state.applicationsWorkedDaily >= '6' && this.$store.state.applicationsWorkedDaily < '1000'">
-                                                                        &#9733; &#9733; &#9733;
-                                                                    </div>
 
-                                                                    <div v-else-if="(this.$store.state.applicationsWorkedDaily < '6' && this.$store.state.applicationsWorkedDaily >= '3')">
-                                                                        &#9733; &#9733;
-                                                                    </div>
-
-                                                                    <div v-else-if="(this.$store.state.applicationsWorkedDaily < '3' && this.$store.state.applicationsWorkedDaily > '0')">
-                                                                        &#9733;
-                                                                    </div>
-                                                                    <div v-else>
-                                                                        No data keyed
-                                                                    </div>
-                                                                </h4>-->
                             </div>
                         </div>
                     </div>
@@ -45,22 +30,7 @@
                                 <input type="number" class="form-control" v-model.number="sarReassigned"><br>
                                 <p>Daily Output: <br>
                                     {{ mathSarFunction() }}/day</p>
-                                <!--<h4>
-                                    <div v-if="mathSarFunction() >= '10'">
-                                        &#9733; &#9733; &#9733;
-                                    </div>
 
-                                    <div v-else-if="(mathSarFunction() < '10' && mathSarFunction() >= '7')">
-                                        &#9733; &#9733;
-                                    </div>
-
-                                    <div v-else-if="(mathSarFunction() < '7' && mathSarFunction() > '0')">
-                                        &#9733;
-                                    </div>
-                                    <div v-else>
-                                        No data keyed
-                                    </div>
-                                </h4>-->
                             </div>
                         </div>
                     </div>
@@ -76,22 +46,7 @@
                                 <input type="number" class="form-control" v-model.number="expReassigned"><br>
                                 <p>Daily Output: <br>
                                     {{ mathExpFunction() }}/day</p>
-                                <!--<h4>
-                                    <div v-if="mathExpFunction() >= '10'">
-                                        &#9733; &#9733; &#9733;
-                                    </div>
 
-                                    <div v-else-if="(mathExpFunction() < '10' && mathExpFunction() >= '7')">
-                                        &#9733; &#9733;
-                                    </div>
-
-                                    <div v-else-if="(mathExpFunction() < '7' && mathExpFunction() > '0')">
-                                        &#9733;
-                                    </div>
-                                    <div v-else>
-                                        No data keyed
-                                    </div>
-                                </h4>-->
                             </div>
                         </div>
                     </div>
@@ -100,7 +55,7 @@
             <div class="row">
                 <div class="col col-lg-auto">
                     <div id="magiProduction">
-                        <div class="card bg-light md4" style="max-width: 18rem;">
+                        <div class="card bg-light md4" style="max-width: 18rem; min-height: 28.2rem;">
                             <div class="card-header"><h5>MAGI Production</h5></div>
                             <div class="card-body">
                                 <label>Tasks Cleared:</label><br>
@@ -109,45 +64,98 @@
                                 <input type="number" class="form-control" v-model.number="magiReassigned"><br>
                                 <p>Daily Output: <br>
                                     {{ mathMagiFunction() }}/day</p>
-                                <!--<h4>
-                                    <div v-if="mathExpFunction() >= '10'">
-                                        &#9733; &#9733; &#9733;
-                                    </div>
-
-                                    <div v-else-if="(mathExpFunction() < '10' && mathExpFunction() >= '7')">
-                                        &#9733; &#9733;
-                                    </div>
-
-                                    <div v-else-if="(mathExpFunction() < '7' && mathExpFunction() > '0')">
-                                        &#9733;
-                                    </div>
-                                    <div v-else>
-                                        No data keyed
-                                    </div>
-                                </h4>-->
-
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col col-md-8">
                     <div id="dataOutput">
-                        <div class="card bg-light" style="max-width: 28rem;">
+                        <div class="card bg-light" style="min-width: 28rem;">
                             <div class="card-header"><h5>Summary</h5></div>
                             <div class="card-body">
-                                <label>Applications:</label> {{ appWorkScore() }}<br>
-                                <p>Percentage of Work: {{ appWorkPercentage() }}%</p>
-                                <label>SARs:</label> {{ sarWorkScore() }}<br>
-                                <p>Percentage of Work: {{ sarWorkPercentage() }}%</p>
-                                <label>Expedites:</label> {{ expWorkScore() }}<br>
-                                <p>Percentage of Work: {{ expWorkPercentage() }}%</p>
-                                <label>MAGI:</label> {{ magiWorkScore() }}<br>
-                                <p>Percentage of Work: {{ magiWorkPercentage() }}%</p>
+                                <label>Applications:
+                                    <div>Percentage of Work: {{ appWorkPercentage() }}%</div>
+                                </label>
+                                <h5>
+                                    <div v-if="(appWorkScore() >= 3)">
+                                        &#9733; &#9733; &#9733;
+                                    </div>
+
+                                    <div v-else-if="(appWorkScore() >= 2 && appWorkScore() < 3)">
+                                        &#9733; &#9733;
+                                    </div>
+                                    <div v-else-if="(appWorkScore() >= 1 && appWorkScore() < 2)">
+                                        &#9733;
+                                    </div>
+                                    <div v-else>
+                                        No data keyed
+                                    </div>
+                                </h5>
+                                <!-- if app work score = 3 then &#9733;&#9733;&#9733; ??? -->
+                                <label>SARs:
+                                    <div>Percentage of Work: {{ sarWorkPercentage() }}%</div>
+                                </label>
+                                <h5>
+                                    <div v-if="(sarWorkScore() >= 3)">
+                                        &#9733; &#9733; &#9733;
+                                    </div>
+
+                                    <div v-else-if="(sarWorkScore() >= 2 && sarWorkScore() < 3)">
+                                        &#9733; &#9733;
+                                    </div>
+                                    <div v-else-if="(sarWorkScore() >= 1 && sarWorkScore() < 2)">
+                                        &#9733;
+                                    </div>
+                                    <div v-else>
+                                        No data keyed
+                                    </div>
+                                </h5>
+
+                                <label>Expedites:
+                                    <div>Percentage of Work: {{ expWorkPercentage() }}%</div>
+                                </label>
+                                <h5>
+                                    <div v-if="(expWorkScore() >= 3)">
+                                        &#9733; &#9733; &#9733;
+                                    </div>
+
+                                    <div v-else-if="(expWorkScore() >= 2 && expWorkScore() < 3)">
+                                        &#9733; &#9733;
+                                    </div>
+                                    <div v-else-if="(expWorkScore() >= 1 && expWorkScore() < 2)">
+                                        &#9733;
+                                    </div>
+                                    <div v-else>
+                                        No data keyed
+                                    </div>
+                                </h5>
+
+                                <label>MAGI:
+                                    <div>Percentage of Work: {{ magiWorkPercentage() }}%</div>
+                                </label>
+                                <h5>
+                                    <div v-if="(magiWorkScore() >= 3)">
+                                        &#9733; &#9733; &#9733;
+                                    </div>
+
+                                    <div v-else-if="(magiWorkScore() >= 2 && magiWorkScore() < 3)">
+                                        &#9733; &#9733;
+                                    </div>
+                                    <div v-else-if="(magiWorkScore() >= 1 && magiWorkScore() < 2)">
+                                        &#9733;
+                                    </div>
+                                    <div v-else>
+                                        No data keyed
+                                    </div>
+                                </h5>
+
+                                <p style="display: none">counted prods{{ prodScoreTotal() }} - {{prodScoreTotal()}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br>
             <div class="float-right">
                 <router-link to="/Timeliness">
                     <button class="btn btn-secondary">Back</button>
@@ -233,13 +241,13 @@
             },
             appWorkPercentage() {
 
-                let totalWork = (this.snapWorked - this.snapReassigned) + (this.sarWorked - this.sarReassigned) + (this.expWorked - this.expReassigned) + (this.magiWorked - this.magiReassigned);
-                let appRatio = (((this.snapWorked - this.snapReassigned) / totalWork) * 100).toFixed(2);
+                let totalWork = ((this.snapWorked - this.snapReassigned) / 0.75) + ((this.sarWorked - this.sarReassigned) / 1.75) + ((this.expWorked - this.expReassigned) / 1.25) + ((this.magiWorked - this.magiReassigned) / 2);
+                let appRatio = ((((this.snapWorked - this.snapReassigned) / 0.75) / totalWork) * 100).toFixed(2);
                 this.$store.state.appRatio = appRatio;
                 return appRatio;
             },
             appWorkScore() {
-                let appRating = 'No Rating';
+                let appRating = 0;
                 let unSat = 3;
                 let sat = 6;
                 let appsDaily = this.$store.state.applicationsWorkedDaily;
@@ -247,31 +255,36 @@
                 let modifiedSat = (((this.appWorkPercentage()) / 100) * sat).toFixed(2);
                 switch (true) {
                     case appsDaily <= 0:
-                        appRating = 'Not Rated';
+                        appRating = 0;
                         break;
                     case appsDaily >= modifiedSat:
-                        appRating = 'App 3*';
+                        appRating = 3;
                         break;
                     case appsDaily < modifiedSat && appsDaily > modifiedUnSat:
-                        appRating = '2*';
+                        appRating = 2;
                         break;
                     case appsDaily > 0 && appsDaily <= modifiedUnSat:
-                        appRating = '1*';
+                        appRating = 1;
                         break;
                     default:
-                        appRating = 'Error';
+                        appRating = 0;
+                }
+                if (appRating > 0) {
+                    this.$store.state.appRated = 1;
+                } else {
+                    this.$store.state.appRated = 0;
                 }
                 return appRating;
             },
             sarWorkPercentage() {
 
-                let totalWork = (this.snapWorked - this.snapReassigned) + (this.sarWorked - this.sarReassigned) + (this.expWorked - this.expReassigned) + (this.magiWorked - this.magiReassigned);
-                let sarRatio = (((this.sarWorked - this.sarReassigned) / totalWork) * 100).toFixed(2);
+                let totalWork = ((this.snapWorked - this.snapReassigned) / 0.75) + ((this.sarWorked - this.sarReassigned) / 1.75) + ((this.expWorked - this.expReassigned) / 1.25) + ((this.magiWorked - this.magiReassigned) / 2);
+                let sarRatio = ((((this.sarWorked - this.sarReassigned) / 1.75) / totalWork) * 100).toFixed(2);
                 this.$store.state.sarRatio = sarRatio;
                 return sarRatio;
             },
             sarWorkScore() {
-                let appRating = 'No Rating';
+                let appRating = 0;
                 let unSat = 6.99;
                 let sat = 10;
                 let appsDaily = this.$store.state.sarsWorkedDaily;
@@ -279,31 +292,36 @@
                 let modifiedSat = (((this.sarWorkPercentage()) / 100) * sat).toFixed(2);
                 switch (true) {
                     case appsDaily <= 0:
-                        appRating = 'Not Rated';
+                        appRating = 0;
                         break;
                     case appsDaily >= modifiedSat:
-                        appRating = 'SAR 3*';
+                        appRating = 3;
                         break;
                     case appsDaily < modifiedSat && appsDaily > modifiedUnSat:
-                        appRating = '2*';
+                        appRating = 2;
                         break;
                     case appsDaily > 0 && appsDaily <= modifiedUnSat:
-                        appRating = '1*';
+                        appRating = 1;
                         break;
                     default:
-                        appRating = 'Error';
+                        appRating = 0;
+                }
+                if (appRating > 0) {
+                    this.$store.state.sarRated = 1;
+                } else {
+                    this.$store.state.sarRated = 0;
                 }
                 return appRating;
             },
             expWorkPercentage() {
 
-                let totalWork = (this.snapWorked - this.snapReassigned) + (this.sarWorked - this.sarReassigned) + (this.expWorked - this.expReassigned) + (this.magiWorked - this.magiReassigned);
-                let expRatio = (((this.expWorked - this.expReassigned) / totalWork) * 100).toFixed(2);
+                let totalWork = ((this.snapWorked - this.snapReassigned) / 0.75) + ((this.sarWorked - this.sarReassigned) / 1.75) + ((this.expWorked - this.expReassigned) / 1.25) + ((this.magiWorked - this.magiReassigned) / 2);
+                let expRatio = ((((this.expWorked - this.expReassigned) / 1.25) / totalWork) * 100).toFixed(2);
                 this.$store.state.expRatio = expRatio;
                 return expRatio;
             },
             expWorkScore() {
-                let appRating = 'No Rating';
+                let appRating = 0;
                 let unSat = 7.99;
                 let sat = 12;
                 let appsDaily = this.$store.state.expWorkedDaily;
@@ -311,31 +329,36 @@
                 let modifiedSat = (((this.expWorkPercentage()) / 100) * sat).toFixed(2);
                 switch (true) {
                     case appsDaily <= 0:
-                        appRating = 'Not Rated';
+                        appRating = 0;
                         break;
                     case appsDaily >= modifiedSat:
-                        appRating = 'EXP 3*';
+                        appRating = 3;
                         break;
                     case appsDaily < modifiedSat && appsDaily > modifiedUnSat:
-                        appRating = '2*';
+                        appRating = 2;
                         break;
                     case appsDaily > 0 && appsDaily <= modifiedUnSat:
-                        appRating = '1*';
+                        appRating = 1;
                         break;
                     default:
-                        appRating = 'Error';
+                        appRating = 0;
+                }
+                if (appRating > 0) {
+                    this.$store.state.expRated = 1;
+                } else {
+                    this.$store.state.expRated = 0;
                 }
                 return appRating;
             },
             magiWorkPercentage() {
 
-                let totalWork = (this.snapWorked - this.snapReassigned) + (this.sarWorked - this.sarReassigned) + (this.expWorked - this.expReassigned) + (this.magiWorked - this.magiReassigned);
-                let magiRatio = (((this.magiWorked - this.magiReassigned) / totalWork) * 100).toFixed(2);
+                let totalWork = ((this.snapWorked - this.snapReassigned) / 0.75) + ((this.sarWorked - this.sarReassigned) / 1.75) + ((this.expWorked - this.expReassigned) / 1.25) + ((this.magiWorked - this.magiReassigned) / 2);
+                let magiRatio = ((((this.magiWorked - this.magiReassigned) / 2) / totalWork) * 100).toFixed(2);
                 this.$store.state.magiRatio = magiRatio;
                 return magiRatio;
             },
             magiWorkScore() {
-                let appRating = 'No Rating';
+                let appRating = 0;
                 let unSat = 12.99;
                 let sat = 16;
                 let appsDaily = this.$store.state.magiWorkedDaily;
@@ -343,28 +366,52 @@
                 let modifiedSat = (((this.magiWorkPercentage()) / 100) * sat).toFixed(2);
                 switch (true) {
                     case appsDaily <= 0:
-                        appRating = 'Not Rated';
+                        appRating = 0;
                         break;
                     case appsDaily >= modifiedSat:
-                        appRating = 'MAGI 3*';
+                        appRating = 3;
                         break;
                     case appsDaily < modifiedSat && appsDaily > modifiedUnSat:
-                        appRating = '2*';
+                        appRating = 2;
                         break;
                     case appsDaily > 0 && appsDaily <= modifiedUnSat:
-                        appRating = '1*';
+                        appRating = 1;
                         break;
                     default:
-                        appRating = 'Error';
+                        appRating = 0;
+                }
+                if (appRating > 0) {
+                    this.$store.state.magiRated = 1;
+                } else {
+                    this.$store.state.magiRated = 0;
                 }
                 return appRating;
             },
-            // created: function() {
-            //     eventBus.$on('workDays', (outcome) => {
-            //         this.calculatedWorkDays = outcome;
-            //     });
-            // }
-        }
+            prodScoreTotal() {
+
+
+                let a = this.$store.state.appRated;
+                let b = this.$store.state.sarRated;
+                let c = this.$store.state.expRated;
+                let d = this.$store.state.magiRated;
+                let e = this.appWorkScore() + this.sarWorkScore() + this.expWorkScore() + this.magiWorkScore()
+                let count = a + b + c + d;
+
+                let prodScore = (e / count).toFixed(2);
+                if (prodScore > 0) {
+                    this.$store.state.prodScore = prodScore;
+                } else {
+                    this.$store.state.prodScore = 0;
+                }
+                return prodScore;
+
+                //DIVIDE SUM OF PROD SCORES BY THE COUNT TO GIVE OVERALL PROD RATING,
+                //FEED PROD RATING BACK TO THE STORE
+                //FISH THE PROD RATING FROM THE STOR FOR THE FINAL PGCS PAGE
+
+
+            },
+        },
     }
 </script>
 

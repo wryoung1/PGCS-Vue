@@ -65,7 +65,7 @@
     export default {
         name: 'app',
         mounted() {
-            let a = this.getDate()
+            let a = this.getDate();
             this.$store.state.reviewDate = a;
         },
         data() {

@@ -19,9 +19,9 @@
                 <li class="nav-item">
                     <router-link to="/Summary"><a class="nav-link" href="#">Summary</a></router-link>
                 </li>
-                <li class="nav-item">
+                <!--<li class="nav-item">
                     <router-link to="/PGCS"><a class="nav-link" href="#">PGCS Page</a></router-link>
-                </li>
+                </li>-->
             </ul>
             <div>
                 <a href="#">Back to Share</a>

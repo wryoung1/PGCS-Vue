@@ -90,6 +90,14 @@ export const store = new Vuex.Store({
         sarRatio: 0,
         magiRatio: 0,
 
+        //Did a production area get rated?
+        appRated: 0,
+        expRated: 0,
+        magiRated: 0,
+        sarRated: 0,
+        prodScore: 0,
+
+
 
     },
     computed: {
