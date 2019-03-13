@@ -1,9 +1,30 @@
 <template>
     <div class="container-fluid">
         <div class="container">
+            <div role="group">
             <h2>Worker Information</h2>
-            <label>Worker Being Reviewed:</label>
-            <input type="text" class="form-control" v-model="workerName">
+            <label for="validateName">Worker Being Reviewed:</label>
+            <b-form-input
+                    id="validateName"
+                    v-model="workerName"
+                    trim
+                    type="text"
+                    :state="nameState"
+                    aria-describedby="validateNameHelp"
+                    placeholder="Enter Worker's Name"
+                    class="form-control"
+            />
+                <!-- this will only show is name state is invalid -->
+            <b-form-invalid-feedback id="validateNameHelp">
+                Enter at least 3 Characters
+            </b-form-invalid-feedback>
+                <b-form-invalid-feedback id="validateNameHelp">
+                    Enter the worker's full name
+                </b-form-invalid-feedback>
+
+            </div>
+
+
             <label>AASIS#:</label>
             <input type="number" class="form-control" v-model="workerNumber">
             <label>Review Month:</label>
@@ -226,7 +247,7 @@
                 <button class="btn btn-secondary">Back</button>
             </router-link>
             <router-link to="/Accuracy">
-                <button class="btn btn-primary" @click="updateMonth">Next</button>
+                <button class="btn btn-primary" :disabled="buttonIsDisabled" @click="updateMonth">Next</button>
             </router-link>
         </div>
     </div>
@@ -236,6 +257,14 @@
 
     export default {
         props: ['countableDays', 'snapMarker'],
+        computed: {
+            nameState() {
+                return this.workerName.length > 2
+            },
+            buttonIsDisabled() {
+              return !this.nameState
+            },
+        },
         data() {
             return {
                 workDays: this.$store.state.availableWorkDays,
