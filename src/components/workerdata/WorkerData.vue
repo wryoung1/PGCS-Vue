@@ -18,9 +18,6 @@
             <b-form-invalid-feedback id="validateNameHelp">
                 Enter at least 3 Characters
             </b-form-invalid-feedback>
-                <b-form-invalid-feedback id="validateNameHelp">
-                    Enter the worker's full name
-                </b-form-invalid-feedback>
 
             </div>
 
