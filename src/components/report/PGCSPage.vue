@@ -502,7 +502,8 @@
                 // TODO are you sure warning
             },
             print() {
-                alert('printing!');
+                window.print()
+                alert('Report Printing!');
                 // TODO print call
             },
 
