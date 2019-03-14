@@ -1,4 +1,6 @@
-# tool
+# PGCS Assessment Tool
+
+Assess employee performance on accuracy, timeliness and production.  Supplemental data collection including optional additional data points at initial entry point.
 
 ## Project setup
 ```
