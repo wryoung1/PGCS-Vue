@@ -1,8 +1,9 @@
 <template>
     <div class="container-fluid">
         <div class="container">
-            <div role="group">
             <h2>Worker Information</h2>
+
+            <div role="group">
             <label for="validateName">Worker Being Reviewed:</label>
             <b-form-input
                     id="validateName"
@@ -16,31 +17,55 @@
             />
                 <!-- this will only show is name state is invalid -->
             <b-form-invalid-feedback id="validateNameHelp">
-                Enter at least 3 Characters
+                Enter Worker's Full Name
             </b-form-invalid-feedback>
-
             </div>
 
+            <div role="group">
+                <label for="validAASIS">AASIS#:</label>
+                <b-form-input
+                        id="validAASIS"
+                        v-model="workerNumber"
+                        trim
+                        type="number"
+                        :state="aasisState"
+                        aria-describedby="validAASISHelp"
+                        class="form-control"
+                />
+                <b-form-invalid-feedback id="validAASISHelp">
+                    Enter Worker's AASIS Number
+                </b-form-invalid-feedback>
+            </div>
 
-            <label>AASIS#:</label>
-            <input type="number" class="form-control" v-model="workerNumber">
-            <label>Review Month:</label>
-            <!--<input type="text" class="form-control" v-model="reviewMonth">-->
-            <select class="form-control" required v-model="reviewMonth">
-                <option selected disabled>Select One...</option>
-                <option value="January">January</option>
-                <option value="February">February</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-                <option value="June">June</option>
-                <option value="July">July</option>
-                <option value="August">August</option>
-                <option value="September">September</option>
-                <option value="October">October</option>
-                <option value="November">November</option>
-                <option value="December">December</option>
-            </select>
+            <div role="group">
+                <label for="validMonth">Review Month:</label>
+                <b-form-select
+                        id="validMonth"
+                        v-model="reviewMonth"
+                        trim
+                        :state="monthState"
+                        aria-describedby="validMonthHelp"
+                        class="form-control"
+                        required
+                        >
+                    <option selected disabled>Select One...</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </b-form-select>
+                <b-form-invalid-feedback id="validMonthHelp">
+                    Please Select Review Month
+                </b-form-invalid-feedback>
+            </div>
         </div>
         <hr>
         <div class="container">
@@ -49,10 +74,37 @@
                     <div class="card bg-light md-4" style="max-width: 18rem;">
                         <div class="card-header"><h5>Available Work Time</h5></div>
                         <div class="card-body">
-                            <label>Work Days:</label><br>
-                            <input type="number" class="form-control" v-model="workDays"><br>
-                            <label>Leave Hours:</label><br>
-                            <input type="number" class="form-control" v-model="leaveHours"><br>
+                            <div role="group">
+                                <label for="validWorkDays">Work Days:</label><br>
+                                <b-form-input
+                                        id="validWorkDays"
+                                        v-model="workDays"
+                                        trim
+                                        :state="workDayState"
+                                        aria-describedby="validWorkDayHelp"
+                                        type="number"
+                                        class="form-control" />
+                                    <b-form-invalid-feedback id="validWorkDayHelp">
+                                        Please Key Total Work Days
+                                    </b-form-invalid-feedback>
+                                <br>
+                            </div>
+                            <div role="group">
+                                <label for="validHours">Leave Hours:</label><br>
+                                <input
+                                        id="validHours"
+                                        v-model="leaveHours"
+                                        trim
+                                        :state="leaveState"
+                                        aria-describedby="validHoursHelp"
+                                        type="number"
+                                        placeholder="0"
+                                        class="form-control"/>
+                                <b-form-invalid-feedback id="validHoursHelp">
+                                    Please Key Leave Time
+                                </b-form-invalid-feedback>
+                            </div>
+                                <br>
                             <p>Actual Work Time: <br> {{ finalNum() }}/days</p>
 
                         </div>
@@ -258,8 +310,28 @@
             nameState() {
                 return this.workerName.length > 2
             },
+            aasisState() {
+                return this.workerNumber.length > 4
+            },
+            monthState() {
+                return this.reviewMonth != 'Select One...'
+            },
+            workDayState() {
+                return this.workDays > 10
+            },
+            leaveState() {
+                return this.leaveTimeHours >= 0
+            },
             buttonIsDisabled() {
-              return !this.nameState
+                var a = this.nameState;
+                var b = this.aasisState;
+                var c = this.monthState;
+                var d = this.workDayState;
+                var disableButton = true;
+                if (a==true && b==true && c==true && d==true){
+                    disableButton = false;
+                }
+                return disableButton;
             },
         },
         data() {
