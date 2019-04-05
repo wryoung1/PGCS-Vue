@@ -26,6 +26,7 @@ export const store = new Vuex.Store({
         timeVisits: 0,
         wkrHearings: 0,
         wkrCommentary: '',
+        wkrImprovements: '',
 
         // SNAP NUMBERS
         snapReviewed: 0,

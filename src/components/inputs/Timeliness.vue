@@ -89,13 +89,13 @@
             <div class="row">
                 <div class="col col-lg-auto">
                     <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header"><h5>SAR Timeliness</h5></div>
+                        <div class="card-header"><h5>SAR/Chng/MP/MSP Timeliness</h5></div>
                         <div class="card-body">
-                            <label>SAR's Worked:</label><br>
+                            <label>Number Worked:</label><br>
                             <input type="number" class="form-control" v-model="sarWorked"><br>
-                            <label>SAR's Late:</label><br>
+                            <label>Number Late:</label><br>
                             <input type="number" class="form-control" v-model="sarLate"><br>
-                            <p>SAR Timeliness: <br> {{ sarTimeliness() }}%</p>
+                            <p>SAR/Chng/MP/MSP Timeliness: <br> {{ sarTimeliness() }}%</p>
                             <h4>
                                 <div v-if="(sarTimeliness() >= 95.00 && sarTimeliness() <= 100.00)">
                                     &#9733; &#9733; &#9733;

@@ -8,6 +8,18 @@
                 <div class="col-xl-6">
                     <div class="card bg-light">
                         <div class="card-header">
+                            <h5 class="card-title">Report</h5></div>
+                        <div class="card-body">
+                            <p class="card-text">Report Month : {{ reviewMonth }}</p>
+                            <p class="card-text">Completed By : {{ superName }}</p>
+                            <p class="card-text">Completed Date : {{ dateFiller() }}</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card bg-light">
+                        <div class="card-header">
                             <h5 class="card-title">Accuracy</h5></div>
                         <div class="card-body">
                             <p class="card-text">SNAP : {{ counted }}% - {{ snapAccStars }}*</p>
@@ -48,7 +60,7 @@
                                     <p class="card-text">SNAP : {{ snapTime }}% - {{ snapTimeStars }}*</p>
                                     <p class="card-text">Medicaid : {{ mcTime }}% - {{ mcTimeStars }}*</p>
                                     <p class="card-text">TEA : {{ teaTime }}% - {{ teaTimeStars }}*</p>
-                                    <p class="card-text">SARs : {{ sarTime }}% - {{ sarTimeStars }}*</p>
+                                    <p class="card-text">SR/Ch/MP/MSP : {{ sarTime }}% - {{ sarTimeStars }}*</p>
                                     <p class="card-text">Expedites : {{ expTime }}% - {{ expTimeStars }}*</p>
                                     <p class="card-text">MAGI : {{ magiTime }}% - {{ magiTimeStars }}*</p>
                                     <hr>
@@ -79,14 +91,14 @@
                                     <p class="card-text">Applications : {{ this.$store.state.applicationsWorkedDaily
                                         }}/day</p>
                                     <p class="card-text">Expedites : {{ this.$store.state.expWorkedDaily }}/day</p>
-                                    <p class="card-text">SARs : {{ this.$store.state.sarsWorkedDaily }}/day</p>
+                                    <p class="card-text">SR/Ch/MP/MSP : {{ this.$store.state.sarsWorkedDaily }}/day</p>
                                     <p class="card-text">MAGI Tasks : {{ this.$store.state.magiWorkedDaily }}/day</p>
                                     <p class="card-text">Percentage of Work : </p>
                                     <p class="card-text">Apps: {{ this.$store.state.appRatio }}%, Exp: {{
-                                        this.$store.state.expRatio }}%, SAR: {{ this.$store.state.sarRatio }}%, MAGI {{
+                                        this.$store.state.expRatio }}%, SR/Ch/MP/MSP: {{ this.$store.state.sarRatio }}%, MAGI {{
                                         this.$store.state.magiRatio }}%</p>
                                     <hr>
-                                    <h6>Overall Production: {{overallProdScore}}</h6>
+                                    <h6>Overall Production:</h6>
                                     <h5>
                                         <div v-if="(overallProdScore >= 3)">
                                             &#9733; &#9733; &#9733; - Satisfactory
@@ -121,6 +133,22 @@
                                     <h5 class="card-title">Comments</h5></div>
                                 <div class="card-body">
                                     <p class="card-text">{{ wkrCommentary }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="card bg-light" style="min-width: 100%; min-height: 200px">
+                                <div class="card-header">
+                                    <h5 class="card-title">Areas for Improvement</h5></div>
+                                <div class="card-body">
+                                    <p class="card-text">{{ wkrImprovements }}</p>
                                 </div>
                             </div>
                         </div>
@@ -177,6 +205,11 @@
     export default {
         data() {
             return {
+
+
+                reviewMonth: this.$store.state.reviewMonth,
+                superName: this.$store.state.supervisorCompleting,
+
                 // ACCURACY
                 snapAccGoal: 95,
                 mcAccGoal: 90,
@@ -232,6 +265,9 @@
             },
             wkrCommentary() {
                 return this.$store.state.wkrCommentary;
+            },
+            wkrImprovements() {
+                return this.$store.state.wkrImprovements;
             },
             overallProdScore() {
                 return Math.ceil(this.$store.state.prodScore);
@@ -505,6 +541,12 @@
                 window.print()
                 alert('Report Printing!');
                 // TODO print call
+            },
+            dateFiller() {
+                let tD = new Date();
+                let datestr = (tD.getMonth() + 1) + "/" + tD.getDate() + "/" + tD.getFullYear();
+                this.$store.state.reviewDate = datestr;
+                return datestr;
             },
 
         }

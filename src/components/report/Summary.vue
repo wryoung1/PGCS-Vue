@@ -56,7 +56,7 @@
                 </div>
                 <div class="col col-lg-auto">
                     <div class="card bg-light mb-3" style="min-width: 15rem;">
-                        <div class="card-header"><h5>SNAP - SAR</h5></div>
+                        <div class="card-header"><h5>SAR/Chng/MP/MSP</h5></div>
                         <div class="card-body">
                             <h4>{{ sarTime }}%</h4>
                         </div>
@@ -143,7 +143,7 @@
                             <h6>Expedites: {{ expWorked }}</h6>
                             <p>{{ expWorkedDaily }}/day</p>
                             <hr>
-                            <h6>SARs/Changes/MP: {{ sarsWorked }}</h6>
+                            <h6>SAR/Chng/MP/MSP: {{ sarsWorked }}</h6>
                             <p>{{ sarsWorkedDaily }}/day</p>
                             <hr>
                             <h6>MAGI Tasks: {{ magiWorked }}</h6>

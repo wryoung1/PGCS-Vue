@@ -291,6 +291,23 @@
             </div>
         </div>
         <hr>
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Areas For Improvement</h5>
+                </div>
+                <div class="card-body">
+                    <textarea
+                            class="form-control"
+                            id="wkrImprovements"
+                            rows="10"
+                            value="Type Notes Here..."
+                            v-model="wkrImprovements"
+                    ></textarea>
+                </div>
+            </div>
+        </div>
+        <hr>
         <div class="float-right">
             <router-link to="/">
                 <button class="btn btn-secondary">Back</button>
@@ -352,6 +369,7 @@
                 timeVisits: this.$store.state.timeVisits,
                 wkrHearings: this.$store.state.wkrHearings,
                 wkrComments: this.$store.state.wkrCommentary,
+                wkrImprovements: this.$store.state.wkrImprovements,
                 progWorked: [],
                 snapChecked: false,
 
@@ -375,6 +393,7 @@
                 let n = this.timeVisits;
                 let o = this.wkrHearings;
                 let p = this.wkrComments;
+                let q = this.wkrImprovements;
                 this.$store.state.availableWorkTime = a;
                 this.$store.state.availableWorkDays = b;
                 this.$store.state.leaveTimeHours = c;
@@ -391,6 +410,7 @@
                 this.$store.state.timeVisits = n;
                 this.$store.state.wkrHearings = o;
                 this.$store.state.wkrCommentary = p;
+                this.$store.state.wkrImprovements = q;
                 return a;
             },
             setCookie(cname, cvalue, exdays) {
