@@ -7,39 +7,9 @@
             a full evaluation, you will need to exit the system and access the annual
             evaluation tool.</p>
         <h3>INSTRUCTIONS:</h3>
-        <p>THIS PAGE WILL PROVIDE BASIC USAGE INSTRUCTIONS, FILLER FOLLOWS....</p>
-        <p>Lorem ipsum blandit adipiscing sit bibendum sapien faucibus nisl pretium, scelerisque urna fermentum bibendum
-            quisque cubilia nisi placerat odio taciti, ut porttitor scelerisque curabitur orci tempor nibh mattis semper
-            pulvinar rutrum dictumst per pretium, molestie urna vel porttitor class, nec netus nibh ut.
-            <br>
-            <br>
-            Class curabitur etiam felis ligula hac sem eu metus sociosqu risus, magna nunc morbi metus auctor posuere
-            vivamus purus malesuada, fermentum nunc in malesuada fames class non adipiscing venenatis ac per a ac enim
-            nulla duis cursus integer mattis nisl.
-            <br>
-            <br>
-            Enim pellentesque volutpat quis elit mauris litora pulvinar himenaeos platea, imperdiet nulla curae tortor
-            morbi quam euismod id tempor duis, himenaeos nam habitant pharetra conubia taciti risus sem.
-            <br>
-            <br>
-            Quisque suscipit curae ullamcorper a nulla egestas cras molestie, odio accumsan pharetra magna malesuada
-            lacus integer enim consectetur curabitur elit habitasse dictumst feugiat vehicula semper, ante ut cras vel
-            amet at massa donec tincidunt sit tincidunt accumsan vulputate nisl.
-            <br>
-            <br>
-            Venenatis odio iaculis accumsan ad morbi a commodo magna, tristique dui habitasse taciti fermentum vel
-            curabitur augue, rutrum pulvinar erat at ligula porttitor vitae inceptos varius habitasse duis donec aenean
-            per.
-            <br>
-            <br>
-            Leo donec lobortis ligula risus nunc dictum ullamcorper neque dui, tortor consectetur imperdiet taciti
-            commodo pharetra lobortis sodales, porta odio habitant augue torquent bibendum habitasse convallis quam
-            gravida pellentesque blandit nunc semper aenean iaculis.
-            <br>
-            <br>
-            A tellus cursus ad ipsum risus varius lorem hendrerit integer consequat, phasellus tincidunt ante vitae
-            volutpat dictumst aliquam sagittis massa semper, sagittis convallis eros morbi enim ullamcorper urna
-            himenaeos auctor ultricies tempus elit ipsum in blandit duis eu ante luctus.</p>
+        TODO: guide<p>THIS PAGE WILL PROVIDE BASIC USAGE INSTRUCTIONS,</p>
+        <br>
+        TODO: manual link<p>Link to user manual goes here</p>
         <div class="container">
             <router-link to="/">
                 <button class="btn btn-secondary" @click="notActive()">Cancel</button>
