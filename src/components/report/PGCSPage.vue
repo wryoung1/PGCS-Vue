@@ -194,9 +194,9 @@
         <div class="float-right">
             <button class="btn btn-outline-danger" @click="close">Exit PGCS System</button>
             <button class="btn btn-success" @click="print">Print Report</button>
-
         </div>
-
+<br><br>
+        <div style="text-align:center">PGCS - V2 (2.0.1) April 2019</div>
     </div>
 
 </template>
