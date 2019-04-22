@@ -95,21 +95,21 @@
                                 <label>SARs:
                                     <div>Percentage of Work: {{ sarWorkPercentage() }}%</div>
                                 </label>
-                                <h5>
-                                    <div v-if="(sarWorkScore() >= 3)">
-                                        &#9733; &#9733; &#9733;
-                                    </div>
+                                <!--<h5>--> TODO: need to find out why this isnt calculating correctly with multiple values in the production range.
+                                    <!--<div v-if="(sarWorkScore() >= 3)">-->
+                                        <!--&#9733; &#9733; &#9733;-->
+                                    <!--</div>-->
 
-                                    <div v-else-if="(sarWorkScore() >= 2 && sarWorkScore() < 3)">
-                                        &#9733; &#9733;
-                                    </div>
-                                    <div v-else-if="(sarWorkScore() >= 1 && sarWorkScore() < 2)">
-                                        &#9733;
-                                    </div>
-                                    <div v-else>
-                                        No data keyed
-                                    </div>
-                                </h5>
+                                    <!--<div v-else-if="(sarWorkScore() >= 2 && sarWorkScore() < 3)">-->
+                                        <!--&#9733; &#9733;-->
+                                    <!--</div>-->
+                                    <!--<div v-else-if="(sarWorkScore() < 2)">-->
+                                        <!--&#9733;-->
+                                    <!--</div>-->
+                                    <!--<div v-else>-->
+                                        <!--No data keyed-->
+                                    <!--</div>-->
+                                <!--</h5>-->
 
                                 <label>Expedites:
                                     <div>Percentage of Work: {{ expWorkPercentage() }}%</div>
@@ -294,7 +294,7 @@
                     case appsDaily <= 0:
                         appRating = 0;
                         break;
-                    case appsDaily >= modifiedSat:
+                    case appsDaily >= modifiedSat && appsDaily < 10000:
                         appRating = 3;
                         break;
                     case appsDaily < modifiedSat && appsDaily > modifiedUnSat:
