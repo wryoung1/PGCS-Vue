@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-md-8">
+              <!-- <div class="col col-md-8">
                     <div id="dataOutput">
                         <div class="card bg-light" style="min-width: 28rem;">
                             <div class="card-header"><h5>Summary</h5></div>
@@ -91,25 +91,25 @@
                                         No data keyed
                                     </div>
                                 </h5>
-                                <!-- if app work score = 3 then &#9733;&#9733;&#9733; ??? -->
+                                NOT IN USE if app work score = 3 then &#9733;&#9733;&#9733; ???
                                 <label>SARs:
                                     <div>Percentage of Work: {{ sarWorkPercentage() }}%</div>
                                 </label>
-                                <!--<h5>--> TODO: need to find out why this isnt calculating correctly with multiple values in the production range.
-                                    <!--<div v-if="(sarWorkScore() >= 3)">-->
-                                        <!--&#9733; &#9733; &#9733;-->
-                                    <!--</div>-->
+                                <h5> TODO: need to find out why this isnt calculating correctly with multiple values in the production range.
+                                    <div v-if="(sarWorkScore() >= 3)">
+                                        &#9733; &#9733; &#9733;
+                                    </div>
 
-                                    <!--<div v-else-if="(sarWorkScore() >= 2 && sarWorkScore() < 3)">-->
-                                        <!--&#9733; &#9733;-->
-                                    <!--</div>-->
-                                    <!--<div v-else-if="(sarWorkScore() < 2)">-->
-                                        <!--&#9733;-->
-                                    <!--</div>-->
-                                    <!--<div v-else>-->
-                                        <!--No data keyed-->
-                                    <!--</div>-->
-                                <!--</h5>-->
+                                    <div v-else-if="(sarWorkScore() >= 2 && sarWorkScore() < 3)">
+                                        &#9733; &#9733;
+                                    </div>
+                                    <div v-else-if="(sarWorkScore() < 2)">
+                                        &#9733;
+                                    </div>
+                                    <div v-else>
+                                        No data keyed
+                                    </div>
+                                </h5>
 
                                 <label>Expedites:
                                     <div>Percentage of Work: {{ expWorkPercentage() }}%</div>
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <br>
             <div class="float-right">
@@ -294,7 +294,7 @@
                     case appsDaily <= 0:
                         appRating = 0;
                         break;
-                    case appsDaily >= modifiedSat && appsDaily < 10000:
+                    case appsDaily >= modifiedSat:
                         appRating = 3;
                         break;
                     case appsDaily < modifiedSat && appsDaily > modifiedUnSat:
