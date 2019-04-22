@@ -377,7 +377,7 @@
         },
         methods: {
             finalNum: function () {
-                let a = this.workDays - this.leaveHours / 8;
+                let a = ((this.workDays - (this.leaveHours / 8))*7)/8;
                 let b = this.workDays;
                 let c = this.leaveHours;
                 let d = this.workerName;

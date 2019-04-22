@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <h1>Monthly Evaluation Tool</h1>
-        <h2>Welcome to the Monthly PGCS tool <u>{{ checkCookie() }}</u>...<button class="btn btn-secondary" @click="changeCookie">Name Wrong?</button></button></h2>
+        <h2>Welcome to the Monthly PGCS tool <u>{{ checkCookie() }}</u>...<button class="btn btn-secondary" @click="changeCookie">Update Name</button></button></h2>
         <p><strong style="background-color: yellow">REMINDER:</strong> You are going to complete a MONTHLY review, if
             you need to complete
             a full evaluation, you will need to exit the system and access the annual
