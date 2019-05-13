@@ -22,7 +22,7 @@
                 <div class="col col-lg-auto">
                     <div id="sarProduction">
                         <div class="card bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header"><h5>SAR Production</h5></div>
+                            <div class="card-header"><h5>Other Production</h5></div>
                             <div class="card-body">
                                 <label>Worked:</label><br>
                                 <input type="number" class="form-control" v-model.number="sarWorked" disabled><br>
@@ -68,7 +68,9 @@
                         </div>
                     </div>
                 </div>
-              <!-- <div class="col col-md-8">
+
+
+              <div class="col col-md-8">
                     <div id="dataOutput">
                         <div class="card bg-light" style="min-width: 28rem;">
                             <div class="card-header"><h5>Summary</h5></div>
@@ -95,7 +97,7 @@
                                 <label>SARs:
                                     <div>Percentage of Work: {{ sarWorkPercentage() }}%</div>
                                 </label>
-                                <h5> TODO: need to find out why this isnt calculating correctly with multiple values in the production range.
+                                <h5> <!-- TODO: need to find out why this isnt calculating correctly with multiple values in the production range. -->
                                     <div v-if="(sarWorkScore() >= 3)">
                                         &#9733; &#9733; &#9733;
                                     </div>
@@ -153,7 +155,8 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
+
             </div>
             <br>
             <div class="float-right">
@@ -163,7 +166,7 @@
                 <router-link to="/Summary">
                     <button class="btn btn-primary">Next</button>
                 </router-link>
-            </div>
+            </div> {{ appWorkScore() }}{{ sarWorkScore() }}{{ expWorkScore() }}{{ magiWorkScore() }}{{ prodScoreTotal() }}
         </div>
     </div>
 </template>
